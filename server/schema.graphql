@@ -1,0 +1,82 @@
+#schema {
+#    query: Query
+#    mutation: Mutation
+#    subscription:Subscription
+#}
+
+interface Node {
+    id: ID!
+}
+type PageInfo {
+    startCursor: String!,
+    endCursor: String!,
+    hasNextPage: Boolean!,
+    hasPreviousPage: Boolean!
+}
+
+type Article implements Node {
+    id: ID!
+    title: String
+    summary: String
+    link: String
+    time: String
+    feed: Feed
+}
+
+type ArticleConnection {
+    pageInfo: PageInfo!
+    edges: [ArticleEdge!]!
+}
+type ArticleEdge  {
+    cursor: String!
+    node: Article!
+}
+
+type Feed implements Node{
+    id:ID!
+    link:String!
+    title:String
+    articles(first:Int,after:String,last:Int,before:String):ArticleConnection
+}
+type FeedConnection {
+    pageInfo: PageInfo!
+    edges: [FeedEdge!]!
+}
+type FeedEdge  {
+    cursor: String!
+    node: Feed!
+}
+
+type TemplateParam{
+    name:String!
+    values:[String!]!
+}
+
+type Template implements Node{
+    id:ID!
+    link:String!
+    title:String
+    params:[TemplateParam!]!
+}
+type TemplateConnection {
+    pageInfo: PageInfo!
+    edges: [TemplateEdge!]!
+}
+type TemplateEdge  {
+    cursor: String!
+    node: Template!
+}
+# The "Query" type is the root of all GraphQL queries.
+# (A "Mutation" type will be covered later on.)
+type Query {
+    node(id: ID!,type:String): Node
+    feeds(first:Int,after:String,last:Int,before:String,keyword:String):FeedConnection
+    templates(first:Int,after:String,last:Int,before:String):TemplateConnection
+}
+type Mutation {
+    addFeed(link:String!,title:String):Feed
+    addTemplate(link:String!,title:String,params:String):Template
+}
+type Subscription {
+    feedAdded:Feed
+}
