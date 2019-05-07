@@ -2,6 +2,8 @@
   <dictionary name="liubinbin">
     <words>
       <w>pubsub</w>
+      <w>xread</w>
+      <w>yuanjingtech</w>
     </words>
   </dictionary>
 </component>
