@@ -1,1 +1,1 @@
-# xread-store
+# xread-store-server
