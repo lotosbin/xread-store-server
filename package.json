@@ -16,7 +16,7 @@
     "graphql-tools": "^4.0.4",
     "lodash": "^4.17.11",
     "mongodb": "^3.1.13",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "typescript": "^3.6.3"
   },
   "scripts": {
