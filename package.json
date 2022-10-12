@@ -9,7 +9,7 @@
     "@babel/preset-typescript": "^7.6.0",
     "@types/dotenv": "^6.1.1",
     "apollo-link-http": "^1.5.14",
-    "apollo-server": "^2.4.6",
+    "apollo-server": "^2.25.4",
     "baidu-aip-sdk": "^2.3.9",
     "dotenv": "^8.1.0",
     "graphql": "^14.1.1",
